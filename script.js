@@ -20,24 +20,30 @@ Array.from(buttons).forEach((button) => {                    //Creating an array
             document.querySelector('.input').value = string;
         }
 
-        else if(e.target.innerHTML=='()')
+        else if(e.target.innerHTML=='+/-')
         {
-            if (input.indexOf("(") == -1 ||                     // '(' is not there
-                input.indexOf("(") != -1 &&                     // '(' is there
-                input.indexOf(")") != -1 &&                     // ')' is there
-                input.lastIndexOf("(") < input.lastIndexOf(")") 
-                )
-                string += "(" ;
-
-                if (input.indexOf("(") == -1 ||                     // '(' is not there
-                input.indexOf("(") != -1 &&                         // '(' is there
-                input.indexOf(")") != -1 &&                         // ')' is there
-                input.lastIndexOf("(") < input.lastIndexOf(")") 
-                )
-                string += "(" ;
-
+            string = -string;
+            document.querySelector('.input').value = string;
         }
 
+        else if(e.target.innerHTML=='.')
+        {
+            if(string == " ")
+            {
+                s='0.';
+                string = string + s;
+                document.querySelector('.input').value = string;
+
+            }
+
+            else if(string != " ")
+            {
+                s='.';
+                string = string + s;
+                document.querySelector('.input').value = string;
+            }
+            
+        }
         
 
         else
@@ -51,21 +57,5 @@ Array.from(buttons).forEach((button) => {                    //Creating an array
     })
 })
 
-function dot()
-{
 
 
-var dot=document.getElementById("t1").value;
-
-if(d.length - 1)
-{
-    d="0.";
-    document.getElementById("t1").value+=d;
-}
-else
-{
-    d=".";
-    document.getElementById("t1").value+=d;
-}
-
-}
